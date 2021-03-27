@@ -143,3 +143,74 @@ int main()
 
   https://xd.adobe.com/view/402cd703-3083-47b5-88ca-4f521dc82176-157f/
   
+  
+<html>
+<head>
+<title>Javascript Login Form Validation</title>
+<!-- Include CSS File Here -->
+<link rel="stylesheet" href="D://JavaScript/javascript_login/style.css"/>
+<!-- Include JS File Here -->
+<script src="D://JavaScript/javascript_login/login.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="main">
+<h2>Javascript Login Form Validation</h2>
+<form id="form_id" method="post" name="myform">
+<label>User Name :</label>
+<input type="text" name="username" id="username"/>
+<label>Password :</label>
+<input type="password" name="password" id="password"/>
+<input type="button" value="Login" id="submit" onclick="validate()"/>
+</form>
+<span><b class="note">Note : </b>For this demo use following username and password. <br/><b class="valid">User Name : Formget<br/>Password : formget#123</b></span>
+</div>
+</div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html">
+<head>
+    
+    <title></title>
+</head>
+<body>
+<?php
+ include = 'D:/JavaScript/javascript_login/dbh.inc.php';
+?>
+<?php
+    $sql = "SELECT * FROM users;";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result); 
+
+    if($resultCheck > 0){
+        while($row = mysqli_fetch_assoc($result)){
+            echo $row['user_uid'] . "<br>";
+        }
+    }
+?>
+
+</body>
+</html>
+
+<?php
+$dbServername = "locahost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbName = "loginsystem";
+$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+
+CREATE TABLE users (
+    user_id int(11) AUTO_INCREMENT PRIMARY  KEY not null,
+    user_first varchar(256) not null,
+    user_last varchar(256) not null,
+    user_email varchar(256) not null,
+    user_uid varchar(256) not null,
+    user_pwd varchar(256) not null,
+);
+
+INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd)
+    VALUES ('Danial', 'Nielsen', 'usemmtuts@gmail.com', 'Admin', 'test123');
+  
